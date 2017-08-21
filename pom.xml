@@ -1,36 +1,45 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>pangpang6</groupId>
-  <artifactId>pangpang6-parent</artifactId>
-  <packaging>pom</packaging>
-  <version>1.0-SNAPSHOT</version>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>pangpang6</groupId>
+    <artifactId>pangpang6-parent</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
     <modules>
         <module>pangpang6-books</module>
+        <module>pangpang6-utils</module>
+        <module>pangpang6-dao</module>
+        <module>pangpang6-model</module>
+        <module>pangpang6-api</module>
+        <module>pangpang6-client</module>
+        <module>pangpang6-web</module>
+        <module>pangpang6-ws</module>
+        <module>pangpang6-sso</module>
+        <module>pangpang6-monitor</module>
     </modules>
 
     <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <pangpang6>1.0-SNAPSHOT</pangpang6>
-    <spring.version>4.2.4.RELEASE</spring.version>
-    <jackson.version>2.6.4</jackson.version>
-    <slf4j.version>1.7.7</slf4j.version>
-    <httpclient.version>4.3.2</httpclient.version>
-    <zookeeper.version>3.4.6</zookeeper.version>
-    <hbase.version>0.94.15-cdh4.6.0</hbase.version>
-    <hadoop.version>2.0.0-cdh4.6.0</hadoop.version>
-    <ruleengine.bundle.version>1.1.1</ruleengine.bundle.version>
-    <dalclient.version>1.0.1.6</dalclient.version>
-    <mongo.java.driver>3.4.0</mongo.java.driver>
-    <spring.data.mongodb>1.10.0.RELEASE</spring.data.mongodb>
-    <guava>19.0</guava>
-    <commons.lang3>3.4</commons.lang3>
-    <commons.lang>2.4</commons.lang>
-    <commons.io>2.5</commons.io>
-    <org.apache.httpcomponents>4.5.1</org.apache.httpcomponents>
-    <org.slf4j>1.7.24</org.slf4j>
-    <junit.version>4.9</junit.version>
-  </properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <pangpang6>1.0-SNAPSHOT</pangpang6>
+        <spring.version>4.2.4.RELEASE</spring.version>
+        <jackson.version>2.6.4</jackson.version>
+        <slf4j.version>1.7.7</slf4j.version>
+        <httpclient.version>4.3.2</httpclient.version>
+        <zookeeper.version>3.4.6</zookeeper.version>
+        <hbase.version>0.94.15-cdh4.6.0</hbase.version>
+        <hadoop.version>2.0.0-cdh4.6.0</hadoop.version>
+        <ruleengine.bundle.version>1.1.1</ruleengine.bundle.version>
+        <dalclient.version>1.0.1.6</dalclient.version>
+        <mongo.java.driver>3.4.0</mongo.java.driver>
+        <spring.data.mongodb>1.10.0.RELEASE</spring.data.mongodb>
+        <guava>19.0</guava>
+        <commons.lang3>3.4</commons.lang3>
+        <commons.lang>2.4</commons.lang>
+        <commons.io>2.5</commons.io>
+        <org.apache.httpcomponents>4.5.1</org.apache.httpcomponents>
+        <org.slf4j>1.7.24</org.slf4j>
+        <junit.version>4.9</junit.version>
+    </properties>
 
     <dependencyManagement>
         <dependencies>
@@ -45,11 +54,222 @@
                 <artifactId>pangpang6-books</artifactId>
                 <version>${pangpang6}</version>
             </dependency>
+            <dependency>
+                <groupId>pangpang6</groupId>
+                <artifactId>pangpang6-api</artifactId>
+                <version>${pangpang6}</version>
+            </dependency>
+            <dependency>
+                <groupId>pangpang6</groupId>
+                <artifactId>pangpang6-dao</artifactId>
+                <version>${pangpang6}</version>
+            </dependency>
+            <dependency>
+                <groupId>pangpang6</groupId>
+                <artifactId>pangpang6-client</artifactId>
+                <version>${pangpang6}</version>
+            </dependency>
+            <dependency>
+                <groupId>pangpang6</groupId>
+                <artifactId>pangpang6-sso</artifactId>
+                <version>${pangpang6}</version>
+            </dependency>
+            <dependency>
+                <groupId>pangpang6</groupId>
+                <artifactId>pangpang6-model</artifactId>
+                <version>${pangpang6}</version>
+            </dependency>
+
+            <!-- servlet -->
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>javax.servlet-api</artifactId>
+                <version>3.0.1</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>javax.servlet.jsp</groupId>
+                <artifactId>javax.servlet.jsp-api</artifactId>
+                <version>2.2.1</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>servlet-api</artifactId>
+                <version>3.0.1</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <!-- Spring -->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-core</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-beans</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context-support</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-aop</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-aspects</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-orm</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-web</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-webmvc</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-expression</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-oxm</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-tx</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-jdbc</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-jms</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-test</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+
+            <!-- jackson -->
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-core</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-annotations</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.module</groupId>
+                <artifactId>jackson-module-jaxb-annotations</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.jasig.cas.client</groupId>
+                <artifactId>cas-client-core</artifactId>
+                <version>3.1.12</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>3.1</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-collections</groupId>
+                <artifactId>commons-collections</artifactId>
+                <version>3.2.2</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-beanutils</groupId>
+                <artifactId>commons-beanutils</artifactId>
+                <version>1.8.3</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>22.0</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>fluent-hc</artifactId>
+                <version>${org.apache.httpcomponents}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpasyncclient</artifactId>
+                <version>4.1.3</version>
+            </dependency>
+
+            <!-- sitemesh -->
+            <dependency>
+                <groupId>opensymphony</groupId>
+                <artifactId>sitemesh</artifactId>
+                <version>2.5-atlassian-10</version>
+            </dependency>
+
+            <!-- dozer -->
+            <dependency>
+                <groupId>net.sf.dozer</groupId>
+                <artifactId>dozer</artifactId>
+                <version>5.3.2</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>org.apache.kafka</groupId>
+                <artifactId>kafka-clients</artifactId>
+                <version>0.11.0.0</version>
+            </dependency>
 
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-api</artifactId>
                 <version>1.7.25</version>
+            </dependency>
+
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>4.9</version>
+                <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>ch.qos.logback</groupId>
