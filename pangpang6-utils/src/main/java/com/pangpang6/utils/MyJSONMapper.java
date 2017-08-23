@@ -1,6 +1,6 @@
 package com.pangpang6.utils;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JavaType;
@@ -15,11 +15,10 @@ import java.text.SimpleDateFormat;
 import java.util.ConcurrentModificationException;
 
 /**
- * 简单封装Jackson，实现JSON String<->Java Object的Mapper.
- * 封装不同的输出风格, 使用不同的builder函数创建实例.
- * Created by jiangjg on 2017/8/16.
+ * Created by jiangjg on 2017/2/24.
  */
 public class MyJSONMapper {
+
     private static final Logger logger = LoggerFactory.getLogger(MyJSONMapper.class);
     private ObjectMapper mapper;
 
@@ -27,7 +26,7 @@ public class MyJSONMapper {
         this(null);
     }
 
-    public MyJSONMapper(JsonInclude.Include include) {
+    public MyJSONMapper(Include include) {
         mapper = new ObjectMapper();
         // 设置输出时包含属性的风格
         if (include != null) {
@@ -56,14 +55,14 @@ public class MyJSONMapper {
      * 创建只输出非Null且非Empty(如List.isEmpty)的属性到Json字符串的Mapper,建议在外部接口中使用.
      */
     public static MyJSONMapper nonEmptyMapper() {
-        return new MyJSONMapper(JsonInclude.Include.NON_EMPTY);
+        return new MyJSONMapper(Include.NON_EMPTY);
     }
 
     /**
      * 创建只输出初始值被改变的属性到Json字符串的Mapper, 最节约的存储方式，建议在内部接口中使用。
      */
     public static MyJSONMapper nonDefaultMapper() {
-        return new MyJSONMapper(JsonInclude.Include.NON_DEFAULT);
+        return new MyJSONMapper(Include.NON_DEFAULT);
     }
 
     /**

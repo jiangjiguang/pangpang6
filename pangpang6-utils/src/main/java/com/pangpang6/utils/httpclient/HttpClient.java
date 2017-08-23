@@ -1,4 +1,4 @@
-package com.pangpang6.utils.client;
+package com.pangpang6.utils.httpclient;
 
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;

@@ -1,4 +1,4 @@
-package com.pangpang6.utils.client;
+package com.pangpang6.utils.httpclient;
 
 /**
  * Created by jiangjg on 2017/2/17.

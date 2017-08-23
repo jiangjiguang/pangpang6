@@ -1,4 +1,4 @@
-package com.pangpang6.utils.client;
+package com.pangpang6.utils.httpclient;
 
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.apache.http.HttpResponse;

@@ -1,4 +1,4 @@
-package com.pangpang6.utils.client;
+package com.pangpang6.utils.httpclient;
 
 import com.pangpang6.utils.unzip.GzipUtils;
 import org.apache.commons.lang3.exception.ExceptionUtils;
