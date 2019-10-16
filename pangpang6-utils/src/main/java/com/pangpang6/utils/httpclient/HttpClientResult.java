@@ -3,7 +3,8 @@ package com.pangpang6.utils.httpclient;
 /**
  * Created by jiangjg on 2017/2/17.
  */
-public class HttpClientResult {private int errorCode;
+public class HttpClientResult {
+    private int errorCode;
     private String errorMessage;
     private String content;
 

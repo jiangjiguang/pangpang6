@@ -12,14 +12,14 @@ import java.util.concurrent.TimeUnit;
  */
 public class GuavaCache {
     public static void main(String[] args) {
-        Cache<String, Boolean> cache;
+        Cache<String, Object> cache;
         cache = CacheBuilder.newBuilder()
-                .maximumSize(5000)
+                .maximumSize(300)
                 .expireAfterWrite(24, TimeUnit.HOURS)
                 .build();
-        Boolean existFlag;
+        Object existFlag;
         try{
-            existFlag = cache.get("", new Callable<Boolean>() {
+            existFlag = cache.get("", new Callable<Object>() {
                 @Override
                 public Boolean call() throws Exception {
                     return get();

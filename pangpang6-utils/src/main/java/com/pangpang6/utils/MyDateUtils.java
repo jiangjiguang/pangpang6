@@ -61,6 +61,15 @@ public class MyDateUtils {
 
     }
 
+    public static String date2StrDefult(long date){
+        try{
+            return fastDateFormat.format(date);
+        }catch (Exception ex){
+            return null;
+        }
+
+    }
+
     public static String date2Str(Date date, String pattern){
         FastDateFormat fastDateFormat = FastDateFormat.getInstance(pattern);
         try{

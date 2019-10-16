@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d-%-5level:-%msg%n</pattern>
+        </encoder>
+    </appender>
+    <appender name="kafkaProducer" class="ch.qos.logback.core.FileAppender">
+        <file>./logs/kafkaProducer.log</file>
+        <encoder>
+            <pattern>%d %-5level [%thread] %logger{36}: %msg%n</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>info</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+    <appender name="kafkaConsumer" class="ch.qos.logback.core.FileAppender">
+        <file>./logs/kafkaConsumer.log</file>
+        <append>false</append>
+        <encoder>
+            <pattern>%d %-5level: %msg%n</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>info</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+    <!-- TRACE, DEBUG, INFO, WARN, ERROR, FATAL, OFF -->
+    <root level="INFO">
+        <appender-ref ref="STDOUT"/>
+    </root>
+    <logger name="com.kafka.jmjtest.ConsumerRunnable" level="info">
+        <appender-ref ref="kafkaConsumer"/>
+    </logger>
+    <logger name="com.kafka.jmjtest.ProducerRunnable" level="info">
+        <appender-ref ref="kafkaProducer"/>
+    </logger>
+    <logger name="com.kafka.ighack.Consumer" level="debug" additivity="false"></logger>
+    <logger name="org.apache.kafka" level="OFF" additivity="false"></logger>
+    <logger name="io.netty" level="OFF" additivity="false"></logger>
+    <logger name="com.lambdaworks.redis" level="OFF" additivity="false"></logger>
+</configuration>
