@@ -9,11 +9,15 @@ import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.datastream.KeyedStream;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.streaming.api.functions.sink.SinkFunction;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.HashMap;
 
 //使用AggregateFunction  重新实现
 public class TradeMain {
+    private static Logger logger = LoggerFactory.getLogger(TradeMain.class);
+
     public static void main(String[] args) throws Exception {
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
         env.setParallelism(2);
@@ -36,6 +40,7 @@ public class TradeMain {
             @Override
             public void invoke(HashMap<String, Integer> value, Context context) throws Exception {
                 Integer sum = value.values().stream().mapToInt(v -> v).sum();
+                logger.info("TradeMain: {}", sum);
                 System.out.println(sum);
             }
         });
