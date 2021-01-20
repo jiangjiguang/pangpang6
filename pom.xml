@@ -22,7 +22,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <pangpang6>1.0-SNAPSHOT</pangpang6>
         <spring.version>4.2.4.RELEASE</spring.version>
-        <jackson.version>2.6.4</jackson.version>
+        <jackson.version>2.12.1</jackson.version>
         <slf4j.version>1.7.7</slf4j.version>
         <httpclient.version>4.3.2</httpclient.version>
         <zookeeper.version>3.4.6</zookeeper.version>
