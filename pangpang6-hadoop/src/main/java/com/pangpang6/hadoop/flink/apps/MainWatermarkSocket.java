@@ -15,6 +15,7 @@ import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.streaming.api.functions.AssignerWithPeriodicWatermarks;
 import org.apache.flink.streaming.api.functions.windowing.WindowFunction;
 import org.apache.flink.streaming.api.watermark.Watermark;
+import org.apache.flink.streaming.api.windowing.assigners.SlidingEventTimeWindows;
 import org.apache.flink.streaming.api.windowing.assigners.TumblingEventTimeWindows;
 import org.apache.flink.streaming.api.windowing.time.Time;
 import org.apache.flink.streaming.api.windowing.windows.TimeWindow;
@@ -90,8 +91,8 @@ public class MainWatermarkSocket {
 
         //分组，聚合
         SingleOutputStreamOperator<String> window = waterMarkStream.keyBy(0)
-                //.window(SlidingEventTimeWindows.of(Time.seconds(2), Time.seconds(3)))
-                .window(TumblingEventTimeWindows.of(Time.seconds(3)))
+                .window(SlidingEventTimeWindows.of(Time.seconds(2), Time.seconds(3)))
+                //.window(TumblingEventTimeWindows.of(Time.seconds(3)))
                 //.allowedLateness(Time.seconds(2)) //允许数据迟到2秒
                 .apply(new WindowFunction<Tuple2<String, Long>, String, Tuple, TimeWindow>() {
 

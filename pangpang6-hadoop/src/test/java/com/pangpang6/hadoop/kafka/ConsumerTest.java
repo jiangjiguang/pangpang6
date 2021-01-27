@@ -29,7 +29,7 @@ public class ConsumerTest {
     @Test
     public void test01() {
         while (true) {
-            ConsumerRecords<Long, String> consumerRecords = consumer.poll(10000);
+            ConsumerRecords<Long, String> consumerRecords = consumer.poll(1000L);
             if (consumerRecords == null || consumerRecords.count() == 0) {
                 continue;
             }

@@ -120,6 +120,21 @@
         </dependency>
 
         <dependency>
+            <groupId>org.apache.parquet</groupId>
+            <artifactId>parquet-hadoop</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.avro</groupId>
+            <artifactId>avro</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.avro</groupId>
+            <artifactId>avro-tools</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
@@ -127,7 +142,7 @@
     </dependencies>
     <build>
         <!--包名-->
-        <finalName>flink_wordcount</finalName>
+        <finalName>KafkaConsumerSubscribeApp</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -161,7 +176,7 @@
                                 <transformer
                                         implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
                                     <!--main方法入口-->
-                                    <mainClass>com.pangpang6.hadoop.flink.word.WordCount</mainClass>
+                                    <mainClass>com.pangpang6.hadoop.app.KafkaConsumerSubscribeApp</mainClass>
                                 </transformer>
                                 <transformer
                                         implementation="org.apache.maven.plugins.shade.resource.ComponentsXmlResourceTransformer"/>

@@ -8,7 +8,7 @@
   <modelVersion>4.0.0</modelVersion>
   <artifactId>pangpang6-hadoop</artifactId>
   <build>
-    <finalName>flink_wordcount</finalName>
+    <finalName>KafkaConsumerSubscribeApp</finalName>
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -37,7 +37,7 @@
             <configuration>
               <transformers>
                 <transformer>
-                  <mainClass>com.pangpang6.hadoop.flink.word.WordCount</mainClass>
+                  <mainClass>com.pangpang6.hadoop.app.KafkaConsumerSubscribeApp</mainClass>
                 </transformer>
                 <transformer />
               </transformers>
