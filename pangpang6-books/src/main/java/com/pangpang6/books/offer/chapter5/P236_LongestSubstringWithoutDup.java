@@ -75,10 +75,10 @@ public class P236_LongestSubstringWithoutDup {
 
     public static void main(String[] args) {
         System.out.println(longestSubstringWithoutDup("arabcacfr"));
-        System.out.println(longestSubstringWithoutDup("abcdefaaa"));
+        //System.out.println(longestSubstringWithoutDup("abcdefaaa"));
 
 
-        System.out.println(findLongestSubstringLength("abcdefaaa"));
+        //System.out.println(findLongestSubstringLength("abcdefaaa"));
 
     }
 }
